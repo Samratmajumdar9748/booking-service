@@ -3,7 +3,6 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 import com.sweethome.bookingservice.exceptions.CustomException;
-import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.producer.Callback;
 import org.apache.kafka.clients.producer.Producer;
 import org.apache.kafka.clients.producer.ProducerRecord;
@@ -19,7 +18,6 @@ import com.sweethome.bookingservice.model.dto.PaymentDto;
 import com.sweethome.bookingservice.model.entity.BookingInfoEntity;
 
 @Service
-@Slf4j
 public class BookingService {
 	
 	@Autowired
@@ -107,7 +105,7 @@ public class BookingService {
 				throw new CustomException("Invalid Booking Id");
 			}
 		}catch (Exception e){
-			log.error("Exception occured !!  ::  ",e);
+			System.out.println(e);
 			throw new CustomException("Exception occured while making payemnt");
 		}
 		}
